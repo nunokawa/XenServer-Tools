@@ -66,18 +66,13 @@ do
 
   echo ""
   sleep 5
-
-  echo ${XE} pif-param-set uuid=${new_uuid} ${other[$num]}
   ${XE} pif-param-set uuid=${new_uuid} ${other[$num]}
-
   sleep 5
-
-  ${XE} pif-list uuid=${new_uuid} params=device,MAC,currently-attached,management,IP-configuration-mode,IP,netmask,gateway,DNS,carrier,speed,duplex
+  ${XE} pif-list uuid=${new_uuid} params=device,MAC,currently-attached,management,IP-configuration-mode,IP,netmask,gateway,DNS,carrier,speed,duplex,other-config
 
 done
 
 sleep 5
-$ethtool_py -n
 $ethtool_py
 
 exit
